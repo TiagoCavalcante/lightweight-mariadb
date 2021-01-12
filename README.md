@@ -1,5 +1,5 @@
 # lightweigth-mariadb
-A MariaDB lightweight container with ~143MB of size
+A MariaDB lightweight Docker container with ~143MB of size
 
 ## how to run
 Execute the commands bellow:
@@ -11,9 +11,9 @@ docker run --name mariadb-server -d tiagotrindade/lightweight-mariadb
 ## environment variables
 The environment variables that you can set are:
 * `MYSQL_ROOT_PASSWORD`: the MariaDB's root password, it defaults to `docker`
-* `MYSQL_DATABASE`: a new MariaDB's database for user `MYSQL_USER`, it defaults to ` `
-* `MYSQL_USER`: a new MariaDB's user with the password `MYSQL_PASSWORD`, it defaults to ` `
-* `MYSQL_PASSWORD`: `MYSQL_USER`'s password, it defaults to ` `
+* `MYSQL_DATABASE`: a new MariaDB's database for user `MYSQL_USER`
+* `MYSQL_USER`: a new MariaDB's user with the password `MYSQL_PASSWORD`
+* `MYSQL_PASSWORD`: `MYSQL_USER`'s password
 
 ## ports
 The exposed ports are the following:
@@ -33,10 +33,13 @@ services:
   mariadb:
     image: tiagotrindade/lightweight-mariadb
     environment:
-      - MYSQL_ROOT_PASSWORD=test
+      - 'MYSQL_ROOT_PASSWORD=test'
     ports:
-      - 3306:3306
+      - '3306:3306'
     volumes:
       - ./etc/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./var/lib/mysql:/var/lib/mysql
 ```
+
+## repository
+You can find all files here: ``
