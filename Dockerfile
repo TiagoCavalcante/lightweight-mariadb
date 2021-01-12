@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ADD ./run.sh /scripts/run.sh
+COPY ./run.sh /scripts/run.sh
 
 RUN apk add --no-cache mariadb && \
     chmod -R 755 /scripts
