@@ -2,16 +2,23 @@
 A MariaDB lightweight Docker container with ~143MB of size
 
 ## how to run
-Execute the commands bellow:
-```bash
-docker pull tiagotrindade/lightweight-mariadb
-docker run --name mariadb-server -d tiagotrindade/lightweight-mariadb
-```
+To run you need to:
+* get the image:
+  * downloading builded version:
+    * `docker pull tiagotrindade/lightweight-mariadb`
+  * building yourself:
+    * `git clone https://github.com/TiagoCavalcanteTrindade/lightweight-mariadb`
+    * `cd lightweight-mariadb`
+    * `docker build -t tiagotrindade/lightweight-mariadb`
+* create the container:
+  * `docker run --name mariadb-server -d tiagotrindade/lightweight-mariadb`
 
 ## environment variables
 The environment variables that you can set are:
 * `MYSQL_ROOT_PASSWORD`: the MariaDB's root password, it defaults to `docker`
 * `MYSQL_DATABASE`: a new MariaDB's database for user `MYSQL_USER`
+* `MYSQL_CHARSET`: the `MYSQL_DATABASE`s charset, it defaults to `utf8mb4`
+* `MYSQL_COLLATION`: the `MYSQL_DATABASE`s collation, it defaults to `utf8mb4_general_ci`
 * `MYSQL_USER`: a new MariaDB's user with the password `MYSQL_PASSWORD`
 * `MYSQL_PASSWORD`: `MYSQL_USER`'s password
 
@@ -20,7 +27,7 @@ The exposed ports are the following:
 * `3306`: MariaDB's port
 
 ## how to save database content
-To save MariaDB's content you need to mount a volume called in `/var/lib/mysql`
+To save MariaDB's content you need to mount a volume that binds to `/var/lib/mysql`
 
 ## how to configure
 To configure MariaDB you need to:
