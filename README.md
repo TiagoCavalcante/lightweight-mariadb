@@ -40,6 +40,3 @@ services:
       - ./etc/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./var/lib/mysql:/var/lib/mysql
 ```
-
-## repository
-You can find all files [here](https://github.com/TiagoCavalcanteTrindade/lightweight-mariadb)
