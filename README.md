@@ -23,7 +23,13 @@ The exposed ports are the following:
 To save MariaDB's content you need to mount a volume called in `/var/lib/mysql`
 
 ## how to configure
-To configure MariaDB you need to create a file inside `/etc/mysql/conf.d`
+To configure MariaDB you need to:
+* create a `cnf` file inside `/etc/mysql/conf.d`, e.g.:
+  ```cnf
+  [mysqld]
+  default_authentication_plugin=mysql_native_password
+  ```
+* execute the following command: `sudo chmod 600 filename.cnf`
 
 ## docker compose sample file
 ```yaml
