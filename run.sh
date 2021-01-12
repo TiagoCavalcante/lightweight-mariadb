@@ -29,8 +29,8 @@ EOF
 			echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;" >> mktemp
 		fi
 
-	 if [ "$MYSQL_USER" != "" ]; then
-		echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" >> mktemp
+		if [ "$MYSQL_USER" != "" ]; then
+			echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" >> mktemp
 	    fi
 	fi
 
