@@ -4,14 +4,14 @@ A MariaDB lightweight Docker container with ~143MB of size
 ## how to run
 To run you need to:
 * get the image:
-	* downloading builded version:
-		* `docker pull tiagotrindade/lightweight-mariadb`
-	* building yourself:
-		* `git clone https://github.com/TiagoCavalcanteTrindade/lightweight-mariadb`
-		* `cd lightweight-mariadb`
-		* `docker build -t tiagotrindade/lightweight-mariadb`
+  * downloading builded version:
+    * `docker pull tiagotrindade/lightweight-mariadb`
+  * building yourself:
+    * `git clone https://github.com/TiagoCavalcanteTrindade/lightweight-mariadb`
+    * `cd lightweight-mariadb`
+    * `docker build -t tiagotrindade/lightweight-mariadb`
 * create the container:
-	* `docker run --name mariadb-server -d tiagotrindade/lightweight-mariadb`
+  * `docker run --name mariadb-server -d tiagotrindade/lightweight-mariadb`
 
 ## environment variables
 The environment variables that you can set are:
@@ -32,10 +32,10 @@ To save MariaDB's content you need to mount a volume that binds to `/var/lib/mys
 ## how to configure
 To configure MariaDB you need to:
 * create a `cnf` file inside `/etc/mysql/conf.d`, e.g.:
-	```cnf
-	[mysqld]
-	default_authentication_plugin=mysql_native_password
-	```
+  ```cnf
+  [mysqld]
+  default_authentication_plugin=mysql_native_password
+  ```
 * execute the following command: `sudo chmod 600 filename.cnf`
 
 ## docker compose sample file
@@ -43,13 +43,13 @@ To configure MariaDB you need to:
 version: '3'
 
 services:
-	mariadb:
-		image: tiagotrindade/lightweight-mariadb
-		environment:
-			- 'MYSQL_ROOT_PASSWORD=test'
-		ports:
-			- '3306:3306'
-		volumes:
-			- ./etc/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
-			- ./var/lib/mysql:/var/lib/mysql
+  mariadb:
+    image: tiagotrindade/lightweight-mariadb
+    environment:
+      - 'MYSQL_ROOT_PASSWORD=test'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./etc/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./var/lib/mysql:/var/lib/mysql
 ```
